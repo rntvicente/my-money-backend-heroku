@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const debug = require('debug')('server:database');
 
 mongoose.Promise = global.Promise;
-const uri = 'mongodb://mymoney:myMoney1@ds159993.mlab.com:59993/my-money';
+
+const uri = process.env.MLAB_URI
+  ? process.env.MLAB_URI
+  : 'mongodb://localhost:27017/myMoney';
 
 const options = {
   connectTimeoutMS: 1000,
