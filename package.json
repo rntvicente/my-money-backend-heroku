@@ -1,0 +1,57 @@
+{
+  "name": "my-money-backend",
+  "version": "1.0.0",
+  "description": "api de inserção de registros para app my-money",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint ./**.js .",
+    "checkFix": "./node_modules/.bin/eslint --fix ./**.js .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "DEBUG=server,server:* nodemon src/index.js",
+    "production": "pm2 start src/index.js --name my-money-app"
+  },
+  "keywords": [
+    "nodejs",
+    "mongoose",
+    "node-restful",
+    "lodash",
+    "express",
+    "nodemon"
+  ],
+  "author": "Renato Vicente",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rntvicente/my-money-app/"
+  },
+  "homepage": "https://github.com/rntvicente/my-money-app#readme",
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.5",
+    "body-parser": "^1.15.2",
+    "debug": "^4.1.1",
+    "chalk": "^2.4.2",
+    "express": "^4.14.0",
+    "express-query-int": "^1.0.1",
+    "jsonwebtoken": "^7.3.0",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.7.0",
+    "mongoose-paginate": "^5.0.3",
+    "morgan": "^1.9.1",
+    "node-restful": "^0.2.5",
+    "pm2": "^2.1.5"
+  },
+  "restartable": "rs",
+  "ignore": [
+    "node_modules/**/node_modules"
+  ],
+  "delay": "2500",
+  "env": {
+    "PORT": 4000,
+    "NODE_ENV": "development"
+  }
+}
