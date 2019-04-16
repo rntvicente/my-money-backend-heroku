@@ -18,14 +18,17 @@ const sendErrorFromDB = (res, dbErros) => {
 const login = (req, res) => {
   const { email: filter, password } = req.body;
 
-  User.findOne({ filter }, (err, user) => {
+  User.findOne({ email: filter }, (err, user) => {
     if (err) {
       sendErrorFromDB(res, err);
       return;
     }
 
     if (user && bcrypt.compareSync(password, user.password)) {
+      console.log('RET');
       const { name, email } = user;
+
+      console.log('AUTH - ',  env.authSecret);
 
       const token = jwt.sign({ ...user }, env.authSecret, {
         expiresIn: '1 day'
